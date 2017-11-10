@@ -1,5 +1,5 @@
-import React from 'react';
-//import { StatusBar } from 'react-native';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   Container,
   Header,
@@ -12,9 +12,15 @@ import {
   Content,
   Text,
   Card,
-  CardItem } from 'native-base';
+  CardItem,
+  Form,
+  Item,
+  Label,
+  Input,
+} from 'native-base';
+import { testAction } from '../actions';
 
-export default class HomeScreen extends React.Component {
+class HomeScreen extends Component {
   render() {
     return (
       <Container>
@@ -59,8 +65,34 @@ export default class HomeScreen extends React.Component {
           >
             <Text>Goto Profiles</Text>
           </Button>
+          <Button
+            rounded
+            block
+            primary
+            style={{ marginTop: 10 }}
+            onPress={() => this.props.testAction()}
+          >
+            <Text>Test Actions</Text>
+          </Button>
+          <Form>
+            <Item floatingLabel>
+              <Label>Username</Label>
+              <Input />
+            </Item>
+            <Item floatingLabel last>
+              <Label>Password</Label>
+              <Input />
+            </Item>
+          </Form>
         </Content>
       </Container>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  console.log(state);
+  return { state };
+};
+
+export default connect(mapStateToProps, { testAction })(HomeScreen);

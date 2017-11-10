@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Text,
   Container,
@@ -8,7 +8,7 @@ import {
 } from 'native-base';
 
 const routes = ['Home', 'Chat', 'Profile'];
-export default class SideBar extends React.Component {
+class SideBar extends Component {
   render() {
     return (
       <Container>
@@ -29,3 +29,5 @@ export default class SideBar extends React.Component {
     );
   }
 }
+
+export default SideBar;

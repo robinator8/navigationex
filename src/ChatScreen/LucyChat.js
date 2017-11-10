@@ -12,7 +12,8 @@ import {
   Item,
   Label,
   Button,
-  Text
+  Text,
+  Form
 } from 'native-base';
 
 export default class LucyChat extends React.Component {
@@ -35,11 +36,14 @@ export default class LucyChat extends React.Component {
           <Right />
         </Header>
         <Content padder>
-          <Item floatingLabel style={{ marginTop: 20 }}>
-            <Label>Lucy Chat</Label>
-            <Input />
-          </Item>
+          <Form>
+            <Item floatingLabel style={{ marginTop: 20 }}>
+              <Label>Lucy Chat</Label>
+              <Input />
+            </Item>
+          </Form>
           <Button
+            bordered
             rounded
             danger
             style={{ marginTop: 20, alignSelf: 'center' }}

@@ -1,9 +1,9 @@
 import React from 'react';
 import { DrawerNavigator } from 'react-navigation';
-import HomeScreen from './HomeScreen.js';
-import MainScreenNavigator from '../ChatScreen/index.js';
-import Profile from '../ProfileScreen/index.js';
-import SideBar from '../SideBar/SideBar.js';
+import HomeScreen from './HomeScreen';
+import MainScreenNavigator from '../ChatScreen/index';
+import Profile from '../ProfileScreen/index';
+import SideBar from '../SideBar/SideBar';
 
 const HomeScreenRouter = DrawerNavigator(
   {
