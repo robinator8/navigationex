@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   Text,
   Container,
@@ -13,8 +14,41 @@ import {
   Title,
   Button,
 } from 'native-base';
+import { logout } from '../actions';
 
-export default class Profile extends React.Component {
+class Profile extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    header: (
+      <Header>
+        <Left>
+          <Button transparent onPress={() => navigation.navigate('DrawerOpen')}>
+            <Icon name='menu' />
+          </Button>
+        </Left>
+        <Body>
+          <Title>Profile</Title>
+        </Body>
+        <Right />
+      </Header>
+    )
+  });
+
+  renderLoggedInCard(loggedIn) {
+    if (!loggedIn) return;
+
+    return (
+      <Button
+        block
+        bordered
+        primary
+        style={{ marginTop: 10 }}
+        onPress={() => this.props.logout()}
+      >
+        <Text>Logout</Text>
+      </Button>
+    );
+  }
+
   render() {
     return (
       <Container>
@@ -37,23 +71,17 @@ export default class Profile extends React.Component {
           >
             <Text>Goto EditScreen One</Text>
           </Button>
+          {this.renderLoggedInCard(this.props.loggedIn)}
         </Content>
       </Container>
     );
   }
 }
-Profile.navigationOptions = ({ navigation }) => ({
-  header: (
-    <Header>
-      <Left>
-        <Button transparent onPress={() => navigation.navigate('DrawerOpen')}>
-          <Icon name='menu' />
-        </Button>
-      </Left>
-      <Body>
-        <Title>Profile</Title>
-      </Body>
-      <Right />
-    </Header>
-  )
-});
+
+const mapStateToProps = ({ auth }) => (
+  {
+    loggedIn: auth.loggedIn
+  }
+);
+
+export default connect(mapStateToProps, { logout })(Profile);

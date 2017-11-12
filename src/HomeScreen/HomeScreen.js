@@ -13,10 +13,6 @@ import {
   Text,
   Card,
   CardItem,
-  Form,
-  Item,
-  Label,
-  Input,
 } from 'native-base';
 import { testAction } from '../actions';
 
@@ -81,7 +77,6 @@ class HomeScreen extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return { state };
 };
 

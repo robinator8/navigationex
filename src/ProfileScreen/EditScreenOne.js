@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Text,
   Container,
@@ -14,7 +14,7 @@ import {
   Button,
 } from 'native-base';
 
-export default class EditScreenOne extends React.Component {
+export default class EditScreenOne extends Component {
   static navigationOptions = ({ navigation }) => ({
     header: (
       <Header>
@@ -30,6 +30,7 @@ export default class EditScreenOne extends React.Component {
       </Header>
     )
   });
+  
   render() {
     return (
       <Container>
