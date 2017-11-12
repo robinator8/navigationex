@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Container,
   Body,
@@ -16,7 +16,7 @@ import {
   Form
 } from 'native-base';
 
-export default class LucyChat extends React.Component {
+export default class LucyChat extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -25,7 +25,7 @@ export default class LucyChat extends React.Component {
           <Left>
             <Button
               transparent
-              onPress={() => this.props.navigation.navigate('DrawerOpen')}
+              onPress={() => navigate('DrawerOpen')}
             >
               <Icon name='menu' />
             </Button>

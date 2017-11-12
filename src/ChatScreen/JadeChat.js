@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Button,
   Text,
@@ -15,7 +15,7 @@ import {
   Label
 } from 'native-base';
 
-export default class JadeChat extends React.Component {
+export default class JadeChat extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -24,19 +24,19 @@ export default class JadeChat extends React.Component {
           <Left>
             <Button
               transparent
-              onPress={() => this.props.navigation.navigate('DrawerOpen')}
+              onPress={() => navigate('DrawerOpen')}
             >
               <Icon name='menu' />
             </Button>
           </Left>
           <Body>
-            <Title>Nine Chat</Title>
+            <Title>Jade Chat</Title>
           </Body>
           <Right />
         </Header>
         <Content padder>
           <Item floatingLabel style={{ marginTop: 20 }}>
-            <Label>Nine Chat</Label>
+            <Label>Jade Chat</Label>
             <Input />
           </Item>
           <Button
@@ -45,7 +45,7 @@ export default class JadeChat extends React.Component {
             style={{ marginTop: 20, alignSelf: 'center' }}
             onPress={() => navigate('Profile')}
           >
-            <Text>Goto Nine Profile</Text>
+            <Text>Goto Jade Profile</Text>
           </Button>
         </Content>
       </Container>

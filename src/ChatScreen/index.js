@@ -1,15 +1,15 @@
 import React from 'react';
 import { TabNavigator } from 'react-navigation';
 import { Button, Text, Icon, Footer, FooterTab } from 'native-base';
-import LucyChat from './LucyChat.js';
-import JadeChat from './JadeChat.js';
-import NineChat from './NineChat.js';
+import LucyChat from './LucyChat';
+import JadeChat from './JadeChat';
+import NineChat from './NineChat';
 
 export default TabNavigator(
   {
     LucyChat: { screen: LucyChat },
+    NineChat: { screen: NineChat },
     JadeChat: { screen: JadeChat },
-    NineChat: { screen: NineChat }
   },
   {
     tabBarPosition: 'bottom',
@@ -27,7 +27,7 @@ export default TabNavigator(
             <Button
               vertical
               active={props.navigationState.index === 1}
-              onPress={() => props.navigation.navigate('JadeChat')}
+              onPress={() => props.navigation.navigate('NineChat')}
             >
               <Icon name='briefcase' />
               <Text>Nine</Text>
@@ -35,7 +35,7 @@ export default TabNavigator(
             <Button
               vertical
               active={props.navigationState.index === 2}
-              onPress={() => props.navigation.navigate('NineChat')}
+              onPress={() => props.navigation.navigate('JadeChat')}
             >
               <Icon name='headset' />
               <Text>Jade</Text>

@@ -74,16 +74,6 @@ class HomeScreen extends Component {
           >
             <Text>Test Actions</Text>
           </Button>
-          <Form>
-            <Item floatingLabel>
-              <Label>Username</Label>
-              <Input />
-            </Item>
-            <Item floatingLabel last>
-              <Label>Password</Label>
-              <Input />
-            </Item>
-          </Form>
         </Content>
       </Container>
     );

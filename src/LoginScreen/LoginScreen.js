@@ -10,8 +10,6 @@ import {
   Body,
   Content,
   Text,
-  Card,
-  CardItem,
   Form,
   Item,
   Label,
@@ -22,18 +20,41 @@ class LoginScreen extends Component {
   render() {
     return (
       <Container>
-        <Left>
-          <Button
-            transparent
-            onPress={() => this.props.navigation.navigate('DrawerOpen')}
-          >
-            <Icon name='menu' />
-          </Button>
-        </Left>
-        <Body>
-          <Title>HomeScreen</Title>
-        </Body>
-        <Right />
+        <Header>
+          <Left>
+            <Button
+              transparent
+              onPress={() => this.props.navigation.navigate('DrawerOpen')}
+            >
+              <Icon name='menu' />
+            </Button>
+          </Left>
+          <Body>
+            <Title>LoginScreen</Title>
+          </Body>
+          <Right />
+        </Header>
+
+        <Content padder>
+              <Form>
+                <Item stackedLabel>
+                  <Label>Username</Label>
+                  <Input />
+                </Item>
+                <Item stackedLabel last>
+                  <Label>Password</Label>
+                  <Input />
+                </Item>
+              </Form>
+              <Button
+                block
+                primary
+                style={{ marginTop: 10 }}
+                onPress={() => {}}
+              >
+                <Text>Login</Text>
+              </Button>
+        </Content>
       </Container>
     );
   }
