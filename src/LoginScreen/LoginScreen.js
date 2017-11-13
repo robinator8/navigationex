@@ -20,7 +20,7 @@ import {
   StyleProvider,
 } from 'native-base';
 import getTheme from '../../native-base-theme/components';
-import commonColor from '../../native-base-theme/variables/platform';
+import commonColor from '../../native-base-theme/variables/commonColor';
 import { login, emailChanged, passwordChanged } from '../actions';
 
 class LoginScreen extends Component {
