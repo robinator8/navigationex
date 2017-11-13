@@ -41,12 +41,12 @@ export default {
   checkboxTickColor: '#fff',
 
   // Segment
-  segmentBackgroundColor: '#3F51B5',
+  segmentBackgroundColor: '#ff6300',
   segmentActiveBackgroundColor: '#fff',
   segmentTextColor: '#fff',
-  segmentActiveTextColor: '#3F51B5',
+  segmentActiveTextColor: '#ff6300',
   segmentBorderColor: '#fff',
-  segmentBorderColorMain: '#3F51B5',
+  segmentBorderColorMain: '#ff6300',
 
   // New Variable
   get defaultTextColor() {
@@ -109,7 +109,7 @@ export default {
   cardDefaultBg: '#fff',
 
   // Color
-  brandPrimary: '#3F51B5',
+  brandPrimary: '#ff6300',
   brandInfo: '#62B1F6',
   brandSuccess: '#5cb85c',
   brandDanger: '#d9534f',
@@ -134,11 +134,11 @@ export default {
 
   // Footer
   footerHeight: isIphoneX ? 89 : 55,
-  footerDefaultBg: '#3F51B5',
+  footerDefaultBg: '#ff6300',
   footerPaddingBottom: isIphoneX ? 34 : 0,
 
   // FooterTab
-  tabBarTextColor: '#8bb3f4',
+  tabBarTextColor: '#f4b48b',
   tabBarTextSize: platform === 'ios' ? 14 : 11,
   activeTab: platform === 'ios' ? '#007aff' : '#fff',
   sTabBarActiveTextColor: '#007aff',
@@ -146,7 +146,7 @@ export default {
   tabActiveBgColor: platform === 'ios' ? '#1569f4' : undefined,
 
   // Tab
-  tabDefaultBg: '#3F51B5',
+  tabDefaultBg: '#ff6300',
   topTabBarTextColor: '#b3c7f9',
   topTabBarActiveTextColor: '#fff',
   topTabActiveBgColor: platform === 'ios' ? '#1569f4' : undefined,
@@ -155,7 +155,7 @@ export default {
 
   // Header
   toolbarBtnColor: '#fff',
-  toolbarDefaultBg: '#3F51B5',
+  toolbarDefaultBg: '#ff6300',
   toolbarHeight: platform === 'ios' ? (isIphoneX ? 88 : 64) : 56,
   toolbarIconSize: platform === 'ios' ? 20 : 22,
   toolbarSearchIconSize: platform === 'ios' ? 20 : 23,
@@ -164,7 +164,7 @@ export default {
   toolbarInverseBg: '#222',
   toolbarTextColor: '#fff',
   iosStatusbar: 'light-content',
-  toolbarDefaultBorder: '#3F51B5',
+  toolbarDefaultBorder: '#ff6300',
   get statusBarColor() {
     return color(this.toolbarDefaultBg)
       .darken(0.2)

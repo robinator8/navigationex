@@ -5,12 +5,13 @@ import {
   PASSWORD_CHANGED,
 } from './types';
 
-export const login = ({ email, password }) => (
+export const login = ({ email, password }, newScreen) => (
   {
     type: LOGIN_SUCCESS,
     payload: {
       email,
       password,
+      newScreen,
     }
   }
 );

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import {
   Container,
   Header,
@@ -14,7 +13,6 @@ import {
   Card,
   CardItem,
 } from 'native-base';
-import { testAction } from '../actions';
 
 class HomeScreen extends Component {
   render() {
@@ -61,23 +59,10 @@ class HomeScreen extends Component {
           >
             <Text>Goto Profiles</Text>
           </Button>
-          <Button
-            rounded
-            block
-            primary
-            style={{ marginTop: 10 }}
-            onPress={() => this.props.testAction()}
-          >
-            <Text>Test Actions</Text>
-          </Button>
         </Content>
       </Container>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return { state };
-};
-
-export default connect(mapStateToProps, { testAction })(HomeScreen);
+export default HomeScreen;

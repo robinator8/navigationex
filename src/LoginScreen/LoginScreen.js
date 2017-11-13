@@ -17,18 +17,13 @@ import {
   Input,
   Card,
   CardItem,
-  StyleProvider,
 } from 'native-base';
-import getTheme from '../../native-base-theme/components';
-import commonColor from '../../native-base-theme/variables/commonColor';
 import { login, emailChanged, passwordChanged } from '../actions';
 
 class LoginScreen extends Component {
-  state = { focusPasswordInput: false } ;
-
   onLoginPress() {
     const { email, password } = this.props;
-    this.props.login({ email, password });
+    this.props.login({ email, password }, () => { this.props.navigation.navigate('Profile'); });
   }
 
   onEmailChange(text) {
@@ -63,61 +58,66 @@ class LoginScreen extends Component {
     );
   }
 
+  renderHeader() {
+    return (
+      <Header>
+        <Left>
+          <Button
+            transparent
+            onPress={() => this.props.navigation.navigate('DrawerOpen')}
+          >
+            <Icon name='menu' />
+          </Button>
+        </Left>
+        <Body>
+          <Title>LoginScreen</Title>
+        </Body>
+        <Right />
+      </Header>
+    );
+  }
+
   render() {
     const { email, password, setPassword, loggedIn } = this.props;
+    console.log('state', this.state);
     return (
-      <StyleProvider style={getTheme(commonColor)}>
-        <Container>
-          <Header>
-            <Left>
-              <Button
-                transparent
-                onPress={() => this.props.navigation.navigate('DrawerOpen')}
-              >
-                <Icon name='menu' />
-              </Button>
-            </Left>
-            <Body>
-              <Title>LoginScreen</Title>
-            </Body>
-            <Right />
-          </Header>
-
-          <Content
-            padder
-            keyboardShouldPersistTaps='always'
-            keyboardDismissMode='on-drag'
-          >
-            <Form>
-              <Item stackedLabel>
-                <Label>Username</Label>
-                <Input
-                  autoFocus
-                  keyboardType='email-address'
-                  autoCapitalize='none'
-                  onChangeText={this.onEmailChange.bind(this)}
-                  value={email}
-                  returnKeyType='next'
-                  onSubmitEditing={() => { this.setState({ focusPasswordInput: true }); }}
-                  // TRYING TO FIGURE OUT HOW TO FOCUS OTHER INPUT
-                />
-              </Item>
-              <Item stackedLabel last>
-                <Label>Password</Label>
-                <Input
-                  ref='PasswordInput'
-                  secureTextEntry
-                  onChangeText={this.onPasswordChange.bind(this)}
-                  value={(() => (setPassword ? password : undefined))()}
-                  returnKeyType='send'
-                  focus={this.state.focsPasswordInput}
-                />
-              </Item>
-            </Form>
-            {this.renderButton(loggedIn)}
-          </Content>
-        </Container>
-      </StyleProvider>
+      <Container>
+        {this.renderHeader()}
+        <Content
+          padder
+          keyboardShouldPersistTaps='always'
+          keyboardDismissMode='on-drag'
+        >
+          <Form>
+            <Item stackedLabel>
+              <Label>Username</Label>
+              <Input
+                autoFocus
+                keyboardType='email-address'
+                autoCapitalize='none'
+                onChangeText={this.onEmailChange.bind(this)}
+                value={email}
+                returnKeyType='next'
+                onSubmitEditing={() => {
+                  this.refs.PasswordInput.wrappedInstance.focus();
+                 }}
+              />
+            </Item>
+            <Item stackedLabel last>
+              <Label>Password</Label>
+              <Input
+                ref='PasswordInput'
+                secureTextEntry
+                onChangeText={this.onPasswordChange.bind(this)}
+                value={(() => (setPassword ? password : undefined))()}
+                returnKeyType='send'
+                onSubmitEditing={loggedIn ? undefined : this.onLoginPress.bind(this)}
+              />
+            </Item>
+          </Form>
+          {this.renderButton(loggedIn)}
+        </Content>
+      </Container>
     );
   }
 }

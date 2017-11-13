@@ -16,6 +16,7 @@ export default (state = INITIAL_STATE, action) => {
   console.log('action', action);
   switch (action.type) {
     case LOGIN_SUCCESS:
+    action.payload.newScreen();
       return {
         ...INITIAL_STATE,
         loggedIn: true,
